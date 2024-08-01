@@ -9,8 +9,10 @@ import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import orange.interactions.Wait;
 import orange.models.LoginModel;
+import orange.tasks.Home;
 import orange.tasks.Login;
 import orange.tasks.NavegateTo;
+import orange.tasks.Recruitment;
 
 import java.util.List;
 
@@ -25,7 +27,7 @@ public class ContratacionOrangeStepdefinition {
     public void iLogInToTheOrangePage() {
 
         OnStage.theActor("gladys").wasAbleTo(NavegateTo.site());
-        OnStage.theActorCalled("gladys").attemptsTo(Wait.milisegundos(3000));
+        OnStage.theActorCalled("gladys").attemptsTo(Wait.milisegundos(1000));
 
     }
 
@@ -43,12 +45,12 @@ public class ContratacionOrangeStepdefinition {
 
     @Given("go to the Recruitment function.")
     public void goToTheRecruitmentFunction() {
-
+        OnStage.theActorCalled("gladys").attemptsTo(Home.goToRecruitment());
     }
 
     @When("click on the Add button for create a new candidate")
     public void clickOnTheAddButtonForCreateANewCandidate() {
-
+        OnStage.theActorCalled("gladys").attemptsTo(Recruitment.openform());
     }
 
     @Then("validate register user succesfully")
