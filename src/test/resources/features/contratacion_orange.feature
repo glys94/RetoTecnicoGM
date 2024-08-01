@@ -3,14 +3,15 @@ Feature:Log in to the Orange page and create a hiring process by entering the re
   Background: login success in demo.orange
     Given I log in to the Orange page
     When  add credentials
-    |user|pasword|
-    |Admin|admin123|
+      | user  | pasword  |
+      | Admin | admin123 |
     Then validate login user succesfully
 
 
-
- Scenario: register 'Recruitment' success in demo.orange
+  Scenario: register 'Recruitment' success in demo.orange
     Given go to the Recruitment function.
     When  click on the Add button for create a new candidate
+      | firstName | middleName |lastName  |email  | contacNumber |keywords  | notes |
+      | Adriana | saavedra |tolima |test@test.com  | 3115769087 |zona centro  | analista |
     Then validate register user succesfully
 

@@ -13,23 +13,6 @@ public class LoginModel  {
     private String user;
     private String pasword;
 
-
-    public String getPasword() {
-        return pasword;
-    }
-
-    public void setPasword(String pasword) {
-        this.pasword = pasword;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
     public static List<LoginModel> setData(DataTable dataTable ) {
         List<LoginModel> dates = new ArrayList<>();
         List<Map<String, String>> mapInfo = dataTable.asMaps();

@@ -8,11 +8,9 @@ import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import orange.interactions.Wait;
+import orange.models.FormRecruitmentModel;
 import orange.models.LoginModel;
-import orange.tasks.Home;
-import orange.tasks.Login;
-import orange.tasks.NavegateTo;
-import orange.tasks.Recruitment;
+import orange.tasks.*;
 
 import java.util.List;
 
@@ -49,8 +47,10 @@ public class ContratacionOrangeStepdefinition {
     }
 
     @When("click on the Add button for create a new candidate")
-    public void clickOnTheAddButtonForCreateANewCandidate() {
-        OnStage.theActorCalled("gladys").attemptsTo(Recruitment.openform());
+    public void clickOnTheAddButtonForCreateANewCandidate(DataTable dataTable) {
+
+        OnStage.theActorCalled("gladys").attemptsTo(Recruitment.openform(), FormRecruitment.completeform(FormRecruitmentModel.setData(dataTable).get(0)));
+
     }
 
     @Then("validate register user succesfully")
