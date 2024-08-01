@@ -1,0 +1,51 @@
+group = 'demoorange'
+version = '1.0-SNAPSHOT'
+apply plugin: 'java'
+
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'https://mvnrepository.com/'
+    }
+}
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "net.serenity-bdd:serenity-gradle-plugin:4.0.12"
+    }
+}
+
+dependencies {
+    implementation 'net.serenity-bdd:serenity-core:4.0.12'
+    implementation 'net.serenity-bdd:serenity-junit:4.0.12'
+    implementation 'net.serenity-bdd:serenity-cucumber:4.0.12'
+    implementation 'net.serenity-bdd:serenity-screenplay:4.0.12'
+    implementation "net.sf.jacob-project:jacob:1.14.3"
+    implementation group: 'io.cucumber', name: 'datatable', version:"7.14.0"
+    testImplementation group: 'junit', name: 'junit', version: '4.13.1'
+    testImplementation 'org.assertj:assertj-core:3.24.2'
+    testImplementation 'org.slf4j:slf4j-simple:2.0.5'
+    testImplementation 'net.serenity-bdd:serenity-screenplay-webdriver:4.0.12'
+    testImplementation 'net.serenity-bdd:serenity-ensure:4.0.12'
+    testImplementation 'junit:junit:4.13.1'
+    implementation group: 'org.jvnet.com4j', name: 'com4j', version: '2.1'
+    implementation "net.serenity-bdd:serenity-reports:4.0.12"
+    testImplementation group: 'io.cucumber', name: 'cucumber-junit', version:"7.14.0"
+
+    compileOnly 'org.projectlombok:lombok:1.18.30'
+    annotationProcessor 'org.projectlombok:lombok:1.18.30'
+}
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
+test{
+    systemProperties System.getProperties()
+}
+
+gradle.startParameter.continueOnFailure=true
