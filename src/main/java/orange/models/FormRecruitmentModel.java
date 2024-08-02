@@ -17,6 +17,9 @@ public class FormRecruitmentModel {
     private String contacNumber;
     private String keywords;
     private String notes;
+    private String interviewerTitle;
+    private String interviewer;
+    private String date;
 
     public static List<FormRecruitmentModel> setData(DataTable dataTable ) {
         List<FormRecruitmentModel> dates = new ArrayList<>();

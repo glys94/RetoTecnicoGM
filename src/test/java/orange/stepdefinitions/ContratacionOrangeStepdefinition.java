@@ -10,9 +10,14 @@ import net.serenitybdd.screenplay.actors.OnlineCast;
 import orange.interactions.Wait;
 import orange.models.FormRecruitmentModel;
 import orange.models.LoginModel;
+import orange.questions.ValidateLogin;
 import orange.tasks.*;
+import orange.userinterface.HomePage;
 
 import java.util.List;
+
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
+import static org.hamcrest.Matchers.equalTo;
 
 public class ContratacionOrangeStepdefinition {
     @Before
@@ -38,7 +43,9 @@ public class ContratacionOrangeStepdefinition {
 
     @Then("validate login user succesfully")
     public void validateLoginUserSuccesfully() {
-
+       OnStage.theActorCalled("gladys").should(seeThat(ValidateLogin.validateLogin(HomePage.VALIDATEDASBOARD),
+                equalTo("Dashboard"
+                        )));
     }
 
     @Given("go to the Recruitment function.")
@@ -49,7 +56,12 @@ public class ContratacionOrangeStepdefinition {
     @When("click on the Add button for create a new candidate")
     public void clickOnTheAddButtonForCreateANewCandidate(DataTable dataTable) {
 
-        OnStage.theActorCalled("gladys").attemptsTo(Recruitment.openform(), FormRecruitment.completeform(FormRecruitmentModel.setData(dataTable).get(0)));
+        OnStage.theActorCalled("gladys").attemptsTo(Recruitment.openform(),
+                FormRecruitment.completeform(FormRecruitmentModel.setData(dataTable).get(0)),
+                ShortList.shortList(),
+                Schedule.schedule(FormRecruitmentModel.setData(dataTable).get(0))
+                );
+
 
     }
 
