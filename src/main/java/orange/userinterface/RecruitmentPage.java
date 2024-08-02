@@ -11,5 +11,7 @@ public class RecruitmentPage {
     public static final Target  APPROVEDBUTTON= Target.the("buttom   Mark Interview Passed   ").located(By.xpath("//button[text()=' Mark Interview Passed ']"));
     public static final Target  OFFERJOBBUTTON= Target.the("buttom    Offer Job    ").located(By.xpath("//button[text()=' Offer Job ']"));
     public static final Target  HIREBUTTON= Target.the("buttom hire").located(By.xpath("//button[text()=' Hire ']"));
+    public static final Target  VACANCYRECRUITMENT= Target.the("vacancy home pages").located(By.xpath("//div[text()='Vacancy']"));
+
 
 }

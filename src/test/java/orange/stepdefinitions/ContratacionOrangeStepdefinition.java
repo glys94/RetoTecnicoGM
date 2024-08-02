@@ -11,8 +11,10 @@ import orange.interactions.Wait;
 import orange.models.FormRecruitmentModel;
 import orange.models.LoginModel;
 import orange.questions.ValidateLogin;
+import orange.questions.ValidationFinal;
 import orange.tasks.*;
 import orange.userinterface.HomePage;
+import orange.userinterface.RecruitmentPage;
 
 import java.util.List;
 
@@ -55,7 +57,6 @@ public class ContratacionOrangeStepdefinition {
 
     @When("click on the Add button for create a new candidate")
     public void clickOnTheAddButtonForCreateANewCandidate(DataTable dataTable) {
-
         OnStage.theActorCalled("gladys").attemptsTo(Recruitment.openform(),
                 FormRecruitment.completeform(FormRecruitmentModel.setData(dataTable).get(0)),
                 ShortList.shortList(),
@@ -64,13 +65,13 @@ public class ContratacionOrangeStepdefinition {
                 Offerjob.offerjob(),
                 Hire.hire()
                 );
-
-
     }
 
     @Then("validate register user succesfully")
     public void validateRegisterUserSuccesfully() {
-
+        OnStage.theActorCalled("gladys").should(seeThat(ValidationFinal.validationFinal(RecruitmentPage.VACANCYRECRUITMENT),
+                equalTo("Vacancy")));
+        Wait.milisegundos(3000);
     }
 
 

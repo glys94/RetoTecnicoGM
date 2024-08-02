@@ -19,7 +19,7 @@ public class ShortList implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-
+                WaitUntil.the(RecruitmentPage.SHORTLISTBUTTON, isCurrentlyVisible()).forNoMoreThan(20).seconds(),
                 Click.on(RecruitmentPage.SHORTLISTBUTTON),
                 Click.on(FormRecruitmentPage.BUTTONSAVE),
                 WaitUntil.the(RecruitmentPage.SCHEDULEBUTTON, isCurrentlyVisible()).forNoMoreThan(20).seconds(),

@@ -19,7 +19,7 @@ public class AproveInterviewer implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
-
+                WaitUntil.the(RecruitmentPage.APPROVEDBUTTON, isCurrentlyVisible()).forNoMoreThan(20).seconds(),
                 Click.on(RecruitmentPage.APPROVEDBUTTON),
                 Click.on(FormRecruitmentPage.BUTTONSAVE)
 

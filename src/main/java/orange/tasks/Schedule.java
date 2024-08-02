@@ -32,6 +32,7 @@ public class Schedule implements Task {
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
+                WaitUntil.the(SchedulePage.INTERVIEWERTITLE, isCurrentlyVisible()).forNoMoreThan(20).seconds(),
                 Enter.theValue(formRecruitmentModel.getInterviewerTitle()).into(SchedulePage.INTERVIEWERTITLE),
                 Enter.theValue(formRecruitmentModel.getInterviewer()).into(SchedulePage.INTERVIEWER),
                 Wait.milisegundos(3000),
