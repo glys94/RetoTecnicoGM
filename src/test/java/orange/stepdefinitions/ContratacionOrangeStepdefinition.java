@@ -59,7 +59,10 @@ public class ContratacionOrangeStepdefinition {
         OnStage.theActorCalled("gladys").attemptsTo(Recruitment.openform(),
                 FormRecruitment.completeform(FormRecruitmentModel.setData(dataTable).get(0)),
                 ShortList.shortList(),
-                Schedule.schedule(FormRecruitmentModel.setData(dataTable).get(0))
+                Schedule.schedule(FormRecruitmentModel.setData(dataTable).get(0)),
+                AproveInterviewer.aproveInterviewer(),
+                Offerjob.offerjob(),
+                Hire.hire()
                 );
 
 
